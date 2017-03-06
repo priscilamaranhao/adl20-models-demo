@@ -1,0 +1,2211 @@
+archetype (adl_version=2.0.5; rm_release=1.0.2; generated)
+    openEHR-EHR-CLUSTER.dietary_nutrients.v0.0.0
+
+language
+    original_language = <[ISO_639-1::pt]>
+    translations = <
+        ["en-us"] = <
+            language = <[ISO_639-1::en-us]>
+            author = <
+                ["name"] = <"?">
+            >
+        >
+    >
+
+description
+    lifecycle_state = <"0">
+    original_author = <
+        ["date"] = <"2016-12-14">
+        ["name"] = <"Priscila Maranhão; Gustavo Bacelar">
+        ["organisation"] = <"MEDCIDS-FMUP; VIRTUAL CARE">
+        ["email"] = <"priscilamaranhao@gmail.com; gbacelar@gmail.com">
+    >
+    other_contributors = <"Ricardo Correia", "Pedro Marques", "Duarte Ferreira">
+    details = <
+        ["en-us"] = <
+            language = <[ISO_639-1::en-us]>
+            purpose = <"Quantify the dietary nutrients intake by an individual in a period of time. ">
+            use = <"Used to children and adults healthy or unhealthy. 
+
+Used to quantify macronutrients and micronutrients intake by diet. 
+
+Used by the professional to prescribe a diet. 
+
+Used to in hospital or ambulatory. 
+
+Can be used for quantifying macronutrients and micronutrients by the individual through labels;
+
+Can also be used for quantifying macronutrients and micronutrients by app mobile and software. ">
+            misuse = <"No to be used to produced labels of food products. 
+No to be used to assess vitamins and minerals in blood analyses. ">
+            keywords = <"*Nutrients(pt)", "*Diet(pt)", "*Vitamin(pt)", "*Minerals(pt)", "*lipids(pt)", "*Carbohydrate(pt)", "*Protein(pt)">
+            copyright = <"*(pt)">
+        >
+        ["pt"] = <
+            language = <[ISO_639-1::pt]>
+            purpose = <"Quantify the dietary nutrients intake by individual in a period of time. ">
+            use = <"To be used to children and adults healthy or unhealthy.  
+
+To be used to quantify macronutrients and micronutrients intake by diet. 
+
+To be used by the professional to prescribe a diet. 
+
+Can be used for quantify macronutrients and micronutrients by the individual through labels; by app mobile and software and by diet records. 
+
+">
+            misuse = <"No to be used to created labels of food products. 
+">
+            keywords = <"Nutrients", "Diet", "Vitamin", "Minerals", "lipids", "Carbohydrate", "Protein">
+        >
+    >
+    conversion_details = <
+        ["author"] = <"aom14 model importer">
+    >
+    other_details = <
+        ["references"] = <"Franceschini, SCC; Priore, SE; Euclydes, MP et al. Necessidades e recomendações de nutrientes. In: Cuppari, L. Guias de medicina ambulatorial e hospitalar da EPM-UNIFESP, Nutricção Clínica no Adulto. Barueri, SP: Manole, 2014. 
+
+Institute of Medicine/ Food and nutrition Board, 2011. Dietary reference Intake. Disponível em: <https://ods.od.nih.gov/Health_Information/Dietary_Reference_Intakes.aspx>
+
+FAO/WHO (Food and Agricultural/World Health Organization). Classificação dos Carboidratos - 1998. Disponível em: <http://fao.org>
+
+Caruso, L. Distúrbios do trato digestório. In: Cuppari, L. Guias de medicina ambulatorial e hospitalar da EPM-UNIFESP, Nutricção Clínica no Adulto. Barueri, SP: Manole, 2014. ">
+        ["MD5-CAM-1.0.1"] = <"A45A0D52AC2738027036E9B5FCB021BA">
+    >
+
+definition
+    CLUSTER[id1] occurrences matches {1} matches {    -- Dietary nutrients
+        items existence matches {1} cardinality matches {1..*; unordered} matches {
+            CLUSTER[id3] occurrences matches {1}     -- Nutrients
+            CLUSTER[id4] occurrences matches {0..1} matches {    -- Macronutrients
+                items existence matches {1} cardinality matches {2..*; unordered} matches {
+                    CLUSTER[id148] occurrences matches {0..1} matches {    -- Energy 
+                        items existence matches {1} cardinality matches {2..*; unordered} matches {
+                            ELEMENT[id149] occurrences matches {0..1} matches {    -- Total energy intake 
+                                value existence matches {1} matches {
+                                    DV_QUANTITY[id150] occurrences matches {1} matches {
+                                        property matches {[at151]}
+                                        units matches {"kcal", "J"}
+                                    }
+                                }
+                            }
+                            CLUSTER[id9] occurrences matches {1} matches {    -- Lipids
+                                items existence matches {1} cardinality matches {1..*; unordered} matches {
+                                    ELEMENT[id36] occurrences matches {0..1} matches {    -- *New element(pt)
+                                        value existence matches {1} matches {
+                                            DV_QUANTITY[id152] occurrences matches {1} matches {
+                                                property matches {[at153]}
+                                                units matches {"gm"}
+                                            }
+                                        }
+                                    }
+                                    ELEMENT[id37] occurrences matches {1} matches {    -- *New element(pt)
+                                        value existence matches {1} matches {
+                                            DV_QUANTITY[id154] occurrences matches {1} matches {
+                                                property matches {[at153]}
+                                                units matches {"mg", "gm"}
+                                            }
+                                        }
+                                    }
+                                    CLUSTER[id38] occurrences matches {0..1} matches {    -- *New cluster(pt)
+                                        items existence matches {1} cardinality matches {1..*; unordered} matches {
+                                            ELEMENT[id69] occurrences matches {0..1} matches {    -- *New element(pt)
+                                                value existence matches {1} matches {
+                                                    DV_QUANTITY[id155] occurrences matches {1} matches {
+                                                        property matches {[at153]}
+                                                        units matches {"gm"}
+                                                    }
+                                                }
+                                            }
+                                            CLUSTER[id39] occurrences matches {0..1} matches {    -- *New cluster(pt)
+                                                items existence matches {1} cardinality matches {1..*; unordered} matches {
+                                                    ELEMENT[id40] occurrences matches {0..1} matches {    -- *New element(pt)
+                                                        value existence matches {1} matches {
+                                                            DV_QUANTITY[id156] occurrences matches {1} matches {
+                                                                property matches {[at153]}
+                                                                units matches {"gm"}
+                                                            }
+                                                        }
+                                                    }
+                                                    ELEMENT[id41] occurrences matches {0..1} matches {    -- *New element(pt)
+                                                        value existence matches {1} matches {
+                                                            DV_QUANTITY[id157] occurrences matches {1} matches {
+                                                                property matches {[at153]}
+                                                                units matches {"gm"}
+                                                            }
+                                                        }
+                                                    }
+                                                    ELEMENT[id42] occurrences matches {0..1} matches {    -- *New element(pt)
+                                                        value existence matches {1} matches {
+                                                            DV_QUANTITY[id158] occurrences matches {1} matches {
+                                                                property matches {[at153]}
+                                                                units matches {"gm"}
+                                                            }
+                                                        }
+                                                    }
+                                                    ELEMENT[id43] occurrences matches {0..1} matches {    -- *New element(pt)
+                                                        value existence matches {1} matches {
+                                                            DV_QUANTITY[id159] occurrences matches {1} matches {
+                                                                property matches {[at153]}
+                                                                units matches {"gm"}
+                                                            }
+                                                        }
+                                                    }
+                                                    ELEMENT[id44] occurrences matches {0..1} matches {    -- *New element(pt)
+                                                        value existence matches {1} matches {
+                                                            DV_QUANTITY[id160] occurrences matches {1} matches {
+                                                                property matches {[at153]}
+                                                                units matches {"gm"}
+                                                            }
+                                                        }
+                                                    }
+                                                    ELEMENT[id45] occurrences matches {0..1} matches {    -- *New element(pt)
+                                                        value existence matches {1} matches {
+                                                            DV_QUANTITY[id161] occurrences matches {1} matches {
+                                                                property matches {[at153]}
+                                                                units matches {"gm"}
+                                                            }
+                                                        }
+                                                    }
+                                                    ELEMENT[id46] occurrences matches {0..1} matches {    -- *New element(pt)
+                                                        value existence matches {1} matches {
+                                                            DV_QUANTITY[id162] occurrences matches {1} matches {
+                                                                property matches {[at153]}
+                                                                units matches {"gm"}
+                                                            }
+                                                        }
+                                                    }
+                                                }
+                                            }
+                                            CLUSTER[id47] occurrences matches {0..1} matches {    -- *New cluster(pt)
+                                                items existence matches {1} cardinality matches {1..*; unordered} matches {
+                                                    ELEMENT[id48] occurrences matches {0..1} matches {    -- *New element(pt)
+                                                        value existence matches {1} matches {
+                                                            DV_QUANTITY[id163] occurrences matches {1} matches {
+                                                                property matches {[at153]}
+                                                                units matches {"gm"}
+                                                            }
+                                                        }
+                                                    }
+                                                    ELEMENT[id49] occurrences matches {0..1} matches {    -- *New element(pt)
+                                                        value existence matches {1} matches {
+                                                            DV_QUANTITY[id164] occurrences matches {1} matches {
+                                                                property matches {[at153]}
+                                                                units matches {"gm"}
+                                                            }
+                                                        }
+                                                    }
+                                                    ELEMENT[id50] occurrences matches {0..1} matches {    -- *New element(pt)
+                                                        value existence matches {1} matches {
+                                                            DV_QUANTITY[id165] occurrences matches {1} matches {
+                                                                property matches {[at153]}
+                                                                units matches {"gm"}
+                                                            }
+                                                        }
+                                                    }
+                                                    ELEMENT[id51] occurrences matches {0..1} matches {    -- *New element(pt)
+                                                        value existence matches {1} matches {
+                                                            DV_QUANTITY[id166] occurrences matches {1} matches {
+                                                                property matches {[at153]}
+                                                                units matches {"gm"}
+                                                            }
+                                                        }
+                                                    }
+                                                    ELEMENT[id52] occurrences matches {0..1} matches {    -- *New element(pt)
+                                                        value existence matches {1} matches {
+                                                            DV_QUANTITY[id167] occurrences matches {1} matches {
+                                                                property matches {[at153]}
+                                                                units matches {"gm"}
+                                                            }
+                                                        }
+                                                    }
+                                                    ELEMENT[id53] occurrences matches {0..1} matches {    -- *New element(pt)
+                                                        value existence matches {1} matches {
+                                                            DV_QUANTITY[id168] occurrences matches {1} 
+                                                        }
+                                                    }
+                                                    ELEMENT[id54] occurrences matches {0..1} matches {    -- *New element(pt)
+                                                        value existence matches {1} matches {
+                                                            DV_QUANTITY[id169] occurrences matches {1} matches {
+                                                                property matches {[at153]}
+                                                                units matches {"gm"}
+                                                            }
+                                                        }
+                                                    }
+                                                }
+                                            }
+                                            CLUSTER[id55] occurrences matches {0..1} matches {    -- *New cluster(pt)
+                                                items existence matches {1} cardinality matches {1..*; unordered} matches {
+                                                    ELEMENT[id56] occurrences matches {0..1} matches {    -- *New element(pt)
+                                                        value existence matches {1} matches {
+                                                            DV_QUANTITY[id170] occurrences matches {1} matches {
+                                                                property matches {[at153]}
+                                                                units matches {"mg"}
+                                                            }
+                                                        }
+                                                    }
+                                                    CLUSTER[id57] occurrences matches {0..1} matches {    -- *New cluster(pt)
+                                                        items existence matches {1} cardinality matches {1..*; unordered} matches {
+                                                            ELEMENT[id59] occurrences matches {0..1} matches {    -- *New element(pt)
+                                                                value existence matches {1} matches {
+                                                                    DV_QUANTITY[id171] occurrences matches {1} matches {
+                                                                        property matches {[at153]}
+                                                                        units matches {"gm"}
+                                                                    }
+                                                                }
+                                                            }
+                                                            ELEMENT[id60] occurrences matches {0..1} matches {    -- *New element(pt)
+                                                                value existence matches {1} matches {
+                                                                    DV_QUANTITY[id172] occurrences matches {1} matches {
+                                                                        property matches {[at153]}
+                                                                        units matches {"gm"}
+                                                                    }
+                                                                }
+                                                            }
+                                                            ELEMENT[id61] occurrences matches {0..1} matches {    -- *New element(pt)
+                                                                value existence matches {1} matches {
+                                                                    DV_QUANTITY[id173] occurrences matches {1} matches {
+                                                                        property matches {[at153]}
+                                                                        units matches {"gm"}
+                                                                    }
+                                                                }
+                                                            }
+                                                            ELEMENT[id62] occurrences matches {0..1} matches {    -- *New element(pt)
+                                                                value existence matches {1} matches {
+                                                                    DV_QUANTITY[id174] occurrences matches {1} matches {
+                                                                        property matches {[at153]}
+                                                                        units matches {"gm"}
+                                                                    }
+                                                                }
+                                                            }
+                                                        }
+                                                    }
+                                                    CLUSTER[id58] occurrences matches {0..1} matches {    -- *New cluster(pt)
+                                                        items existence matches {1} cardinality matches {1..*; unordered} matches {
+                                                            ELEMENT[id63] occurrences matches {0..1} matches {    -- *New element(pt)
+                                                                value existence matches {1} matches {
+                                                                    DV_QUANTITY[id175] occurrences matches {1} matches {
+                                                                        property matches {[at153]}
+                                                                        units matches {"gm"}
+                                                                    }
+                                                                }
+                                                            }
+                                                            ELEMENT[id64] occurrences matches {0..1} matches {    -- *New element(pt)
+                                                                value existence matches {1} matches {
+                                                                    DV_QUANTITY[id176] occurrences matches {1} matches {
+                                                                        property matches {[at153]}
+                                                                        units matches {"gm"}
+                                                                    }
+                                                                }
+                                                            }
+                                                            ELEMENT[id65] occurrences matches {0..1} matches {    -- *New element(pt)
+                                                                value existence matches {1} matches {
+                                                                    DV_QUANTITY[id177] occurrences matches {1} matches {
+                                                                        property matches {[at153]}
+                                                                        units matches {"gm"}
+                                                                    }
+                                                                }
+                                                            }
+                                                            ELEMENT[id66] occurrences matches {0..1} matches {    -- *New element(pt)
+                                                                value existence matches {1} matches {
+                                                                    DV_QUANTITY[id178] occurrences matches {1} matches {
+                                                                        property matches {[at153]}
+                                                                        units matches {"gm"}
+                                                                    }
+                                                                }
+                                                            }
+                                                            ELEMENT[id67] occurrences matches {0..1} matches {    -- *New element(pt)
+                                                                value existence matches {1} matches {
+                                                                    DV_QUANTITY[id179] occurrences matches {1} matches {
+                                                                        property matches {[at153]}
+                                                                        units matches {"gm"}
+                                                                    }
+                                                                }
+                                                            }
+                                                            ELEMENT[id68] occurrences matches {0..1} matches {    -- *New element(pt)
+                                                                value existence matches {1} matches {
+                                                                    DV_QUANTITY[id180] occurrences matches {1} matches {
+                                                                        property matches {[at153]}
+                                                                        units matches {"gm"}
+                                                                    }
+                                                                }
+                                                            }
+                                                        }
+                                                    }
+                                                }
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+                            CLUSTER[id10] occurrences matches {0..1} matches {    -- Carbohydrate
+                                items existence matches {1} cardinality matches {1..*; unordered} matches {
+                                    ELEMENT[id70] occurrences matches {0..1} matches {    -- *New element(pt)
+                                        value existence matches {1} matches {
+                                            DV_QUANTITY[id181] occurrences matches {1} matches {
+                                                property matches {[at153]}
+                                                units matches {"gm"}
+                                            }
+                                        }
+                                    }
+                                    CLUSTER[id116] occurrences matches {0..1} matches {    -- *New cluster(pt)
+                                        items existence matches {1} cardinality matches {1..*; unordered} matches {
+                                            CLUSTER[id119] occurrences matches {0..1} matches {    -- *New cluster(pt)
+                                                items existence matches {1} cardinality matches {1..*; unordered} matches {
+                                                    ELEMENT[id122] occurrences matches {0..1} matches {    -- *New element(pt)
+                                                        value existence matches {1} matches {
+                                                            DV_QUANTITY[id182] occurrences matches {1} matches {
+                                                                property matches {[at153]}
+                                                                units matches {"gm", "mg"}
+                                                            }
+                                                        }
+                                                    }
+                                                    ELEMENT[id124] occurrences matches {0..1} matches {    -- *New element(pt)
+                                                        value existence matches {1} matches {
+                                                            DV_QUANTITY[id183] occurrences matches {1} matches {
+                                                                property matches {[at153]}
+                                                                units matches {"mg", "gm"}
+                                                            }
+                                                        }
+                                                    }
+                                                    ELEMENT[id125] occurrences matches {0..1} matches {    -- *New element(pt)
+                                                        value existence matches {1} matches {
+                                                            DV_QUANTITY[id184] occurrences matches {1} matches {
+                                                                property matches {[at153]}
+                                                                units matches {"gm", "mg"}
+                                                            }
+                                                        }
+                                                    }
+                                                }
+                                            }
+                                            CLUSTER[id120] occurrences matches {0..1} matches {    -- *New cluster(pt)
+                                                items existence matches {1} cardinality matches {1..*; unordered} matches {
+                                                    ELEMENT[id126] occurrences matches {0..1} matches {    -- *New element(pt)
+                                                        value existence matches {1} matches {
+                                                            DV_QUANTITY[id185] occurrences matches {1} matches {
+                                                                property matches {[at153]}
+                                                                units matches {"mg", "gm"}
+                                                            }
+                                                        }
+                                                    }
+                                                    ELEMENT[id127] occurrences matches {0..1} matches {    -- *New element(pt)
+                                                        value existence matches {1} matches {
+                                                            DV_QUANTITY[id186] occurrences matches {1} matches {
+                                                                property matches {[at153]}
+                                                                units matches {"mg", "gm"}
+                                                            }
+                                                        }
+                                                    }
+                                                    ELEMENT[id128] occurrences matches {0..1} matches {    -- *New element(pt)
+                                                        value existence matches {1} matches {
+                                                            DV_QUANTITY[id187] occurrences matches {1} matches {
+                                                                property matches {[at153]}
+                                                                units matches {"mg", "gm"}
+                                                            }
+                                                        }
+                                                    }
+                                                }
+                                            }
+                                            CLUSTER[id121] occurrences matches {0..1} matches {    -- *New cluster(pt)
+                                                items existence matches {1} cardinality matches {1..*; unordered} matches {
+                                                    ELEMENT[id129] occurrences matches {0..1} matches {    -- *New element(pt)
+                                                        value existence matches {1} matches {
+                                                            DV_QUANTITY[id188] occurrences matches {1} matches {
+                                                                property matches {[at153]}
+                                                                units matches {"mg", "gm"}
+                                                            }
+                                                        }
+                                                    }
+                                                    ELEMENT[id130] occurrences matches {0..1} matches {    -- *New element(pt)
+                                                        value existence matches {1} matches {
+                                                            DV_QUANTITY[id189] occurrences matches {1} matches {
+                                                                property matches {[at153]}
+                                                                units matches {"gm", "mg"}
+                                                            }
+                                                        }
+                                                    }
+                                                }
+                                            }
+                                        }
+                                    }
+                                    CLUSTER[id117] occurrences matches {0..1} matches {    -- *New cluster(pt)
+                                        items existence matches {1} cardinality matches {1..*; unordered} matches {
+                                            CLUSTER[id131] occurrences matches {0..1} matches {    -- *New cluster(pt)
+                                                items existence matches {1} cardinality matches {1..*; unordered} matches {
+                                                    ELEMENT[id134] occurrences matches {0..1} matches {    -- *New element(pt)
+                                                        value existence matches {1} matches {
+                                                            DV_QUANTITY[id190] occurrences matches {1} matches {
+                                                                property matches {[at153]}
+                                                                units matches {"gm"}
+                                                            }
+                                                        }
+                                                    }
+                                                }
+                                            }
+                                            CLUSTER[id132] occurrences matches {0..1} matches {    -- *New cluster(pt)
+                                                items existence matches {1} cardinality matches {1..*; unordered} matches {
+                                                    ELEMENT[id135] occurrences matches {0..1} matches {    -- *New element(pt)
+                                                        value existence matches {1} matches {
+                                                            DV_QUANTITY[id191] occurrences matches {1} matches {
+                                                                property matches {[at153]}
+                                                                units matches {"gm", "mg"}
+                                                            }
+                                                        }
+                                                    }
+                                                    ELEMENT[id136] occurrences matches {0..1} matches {    -- *New element(pt)
+                                                        value existence matches {1} matches {
+                                                            DV_QUANTITY[id192] occurrences matches {1} matches {
+                                                                property matches {[at153]}
+                                                                units matches {"gm", "mg"}
+                                                            }
+                                                        }
+                                                    }
+                                                    ELEMENT[id137] occurrences matches {0..1} matches {    -- *New element(pt)
+                                                        value existence matches {1} matches {
+                                                            DV_QUANTITY[id193] occurrences matches {1} matches {
+                                                                property matches {[at153]}
+                                                                units matches {"mg", "gm"}
+                                                            }
+                                                        }
+                                                    }
+                                                }
+                                            }
+                                            ELEMENT[id147] occurrences matches {0..1} matches {    -- *New element(pt)
+                                                value existence matches {1} matches {
+                                                    DV_QUANTITY[id194] occurrences matches {1} matches {
+                                                        property matches {[at153]}
+                                                        units matches {"gm"}
+                                                    }
+                                                }
+                                            }
+                                        }
+                                    }
+                                    CLUSTER[id118] occurrences matches {0..1} matches {    -- *New cluster(pt)
+                                        items existence matches {1} cardinality matches {1..*; unordered} matches {
+                                            CLUSTER[id138] occurrences matches {0..1} matches {    -- *New cluster(pt)
+                                                items existence matches {1} cardinality matches {1..*; unordered} matches {
+                                                    ELEMENT[id140] occurrences matches {0..1} matches {    -- *New element(pt)
+                                                        value existence matches {1} matches {
+                                                            DV_QUANTITY[id195] occurrences matches {1} matches {
+                                                                property matches {[at153]}
+                                                                units matches {"gm", "mg"}
+                                                            }
+                                                        }
+                                                    }
+                                                    ELEMENT[id141] occurrences matches {0..1} matches {    -- *New element(pt)
+                                                        value existence matches {1} matches {
+                                                            DV_QUANTITY[id196] occurrences matches {1} matches {
+                                                                property matches {[at153]}
+                                                                units matches {"gm", "mg"}
+                                                            }
+                                                        }
+                                                    }
+                                                    ELEMENT[id142] occurrences matches {0..1} matches {    -- *New element(pt)
+                                                        value existence matches {1} matches {
+                                                            DV_QUANTITY[id197] occurrences matches {1} matches {
+                                                                property matches {[at153]}
+                                                                units matches {"gm", "mg"}
+                                                            }
+                                                        }
+                                                    }
+                                                }
+                                            }
+                                            CLUSTER[id139] occurrences matches {0..1} matches {    -- *New cluster(pt)
+                                                items existence matches {1} cardinality matches {1..*; unordered} matches {
+                                                    ELEMENT[id143] occurrences matches {0..1} matches {    -- *New element(pt)
+                                                        value existence matches {1} matches {
+                                                            DV_QUANTITY[id198] occurrences matches {1} matches {
+                                                                property matches {[at153]}
+                                                                units matches {"gm", "mg"}
+                                                            }
+                                                        }
+                                                    }
+                                                    ELEMENT[id144] occurrences matches {0..1} matches {    -- *New element(pt)
+                                                        value existence matches {1} matches {
+                                                            DV_QUANTITY[id199] occurrences matches {1} matches {
+                                                                property matches {[at153]}
+                                                                units matches {"gm", "mg"}
+                                                            }
+                                                        }
+                                                    }
+                                                    ELEMENT[id145] occurrences matches {0..1} matches {    -- *New element(pt)
+                                                        value existence matches {1} matches {
+                                                            DV_QUANTITY[id200] occurrences matches {1} matches {
+                                                                property matches {[at153]}
+                                                                units matches {"gm", "mg"}
+                                                            }
+                                                        }
+                                                    }
+                                                    ELEMENT[id146] occurrences matches {0..1} matches {    -- *New element(pt)
+                                                        value existence matches {1} matches {
+                                                            DV_QUANTITY[id201] occurrences matches {1} matches {
+                                                                property matches {[at153]}
+                                                                units matches {"gm", "mg"}
+                                                            }
+                                                        }
+                                                    }
+                                                }
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+                            CLUSTER[id7] occurrences matches {1} matches {    -- Proteins
+                                items existence matches {1} cardinality matches {1..*; unordered} matches {
+                                    ELEMENT[id12] occurrences matches {0..1} matches {    -- *New element(pt)
+                                        value existence matches {1} matches {
+                                            DV_QUANTITY[id202] occurrences matches {1} matches {
+                                                property matches {[at153]}
+                                                units matches {"gm"}
+                                            }
+                                        }
+                                    }
+                                    CLUSTER[id11] occurrences matches {0..1} matches {    -- *New cluster(pt)
+                                        items existence matches {1} cardinality matches {1..*; unordered} matches {
+                                            CLUSTER[id15] occurrences matches {0..1} matches {    -- *New cluster(pt)
+                                                items existence matches {1} cardinality matches {1..*; unordered} matches {
+                                                    ELEMENT[id20] occurrences matches {0..1} matches {    -- *New element(pt)
+                                                        value existence matches {1} matches {
+                                                            DV_QUANTITY[id203] occurrences matches {1} matches {
+                                                                property matches {[at153]}
+                                                                units matches {"mg"}
+                                                            }
+                                                        }
+                                                    }
+                                                    ELEMENT[id19] occurrences matches {0..1} matches {    -- *New element(pt)
+                                                        value existence matches {1} matches {
+                                                            DV_QUANTITY[id204] occurrences matches {1} matches {
+                                                                property matches {[at153]}
+                                                                units matches {"mg"}
+                                                            }
+                                                        }
+                                                    }
+                                                    ELEMENT[id18] occurrences matches {0..1} matches {    -- *New element(pt)
+                                                        value existence matches {1} matches {
+                                                            DV_QUANTITY[id205] occurrences matches {1} matches {
+                                                                property matches {[at153]}
+                                                                units matches {"mg"}
+                                                            }
+                                                        }
+                                                    }
+                                                    ELEMENT[id17] occurrences matches {0..1} matches {    -- *New element(pt)
+                                                        value existence matches {1} matches {
+                                                            DV_QUANTITY[id206] occurrences matches {1} matches {
+                                                                property matches {[at153]}
+                                                                units matches {"mg"}
+                                                            }
+                                                        }
+                                                    }
+                                                    ELEMENT[id16] occurrences matches {0..1} matches {    -- *New element(pt)
+                                                        value existence matches {1} matches {
+                                                            DV_QUANTITY[id207] occurrences matches {1} matches {
+                                                                property matches {[at153]}
+                                                                units matches {"mg"}
+                                                            }
+                                                        }
+                                                    }
+                                                }
+                                            }
+                                            CLUSTER[id14] occurrences matches {0..1} matches {    -- *New cluster(pt)
+                                                items existence matches {1} cardinality matches {1..*; unordered} matches {
+                                                    ELEMENT[id29] occurrences matches {0..1} matches {    -- *New element(pt)
+                                                        value existence matches {1} matches {
+                                                            DV_QUANTITY[id208] occurrences matches {1} matches {
+                                                                property matches {[at153]}
+                                                                units matches {"mg"}
+                                                            }
+                                                        }
+                                                    }
+                                                    ELEMENT[id28] occurrences matches {0..1} matches {    -- *New element(pt)
+                                                        value existence matches {1} matches {
+                                                            DV_QUANTITY[id209] occurrences matches {1} matches {
+                                                                property matches {[at153]}
+                                                                units matches {"mg"}
+                                                            }
+                                                        }
+                                                    }
+                                                    ELEMENT[id27] occurrences matches {0..1} matches {    -- *New element(pt)
+                                                        value existence matches {1} matches {
+                                                            DV_QUANTITY[id210] occurrences matches {1} matches {
+                                                                property matches {[at153]}
+                                                                units matches {"mg"}
+                                                            }
+                                                        }
+                                                    }
+                                                    ELEMENT[id26] occurrences matches {0..1} matches {    -- *New element(pt)
+                                                        value existence matches {1} matches {
+                                                            DV_QUANTITY[id211] occurrences matches {1} matches {
+                                                                property matches {[at153]}
+                                                                units matches {"mg"}
+                                                            }
+                                                        }
+                                                    }
+                                                    ELEMENT[id25] occurrences matches {0..1} matches {    -- *New element(pt)
+                                                        value existence matches {1} matches {
+                                                            DV_QUANTITY[id212] occurrences matches {1} matches {
+                                                                property matches {[at153]}
+                                                                units matches {"mg"}
+                                                            }
+                                                        }
+                                                    }
+                                                    ELEMENT[id24] occurrences matches {0..1} matches {    -- *New element(pt)
+                                                        value existence matches {1} matches {
+                                                            DV_QUANTITY[id213] occurrences matches {1} matches {
+                                                                property matches {[at153]}
+                                                                units matches {"mg"}
+                                                            }
+                                                        }
+                                                    }
+                                                    ELEMENT[id23] occurrences matches {0..1} matches {    -- *New element(pt)
+                                                        value existence matches {1} matches {
+                                                            DV_QUANTITY[id214] occurrences matches {1} matches {
+                                                                property matches {[at153]}
+                                                                units matches {"mg"}
+                                                            }
+                                                        }
+                                                    }
+                                                    ELEMENT[id22] occurrences matches {0..1} matches {    -- *New element(pt)
+                                                        value existence matches {1} matches {
+                                                            DV_QUANTITY[id215] occurrences matches {1} matches {
+                                                                property matches {[at153]}
+                                                                units matches {"mg"}
+                                                            }
+                                                        }
+                                                    }
+                                                    ELEMENT[id21] occurrences matches {0..1} matches {    -- *New element(pt)
+                                                        value existence matches {1} matches {
+                                                            DV_QUANTITY[id216] occurrences matches {1} matches {
+                                                                property matches {[at153]}
+                                                                units matches {"mg"}
+                                                            }
+                                                        }
+                                                    }
+                                                }
+                                            }
+                                            CLUSTER[id13] occurrences matches {0..1} matches {    -- *New cluster(pt)
+                                                items existence matches {1} cardinality matches {1..*; unordered} matches {
+                                                    ELEMENT[id31] occurrences matches {0..1} matches {    -- *New element(pt)
+                                                        value existence matches {1} matches {
+                                                            DV_QUANTITY[id217] occurrences matches {1} matches {
+                                                                property matches {[at153]}
+                                                                units matches {"mg"}
+                                                            }
+                                                        }
+                                                    }
+                                                    ELEMENT[id30] occurrences matches {0..1} matches {    -- *New element(pt)
+                                                        value existence matches {1} matches {
+                                                            DV_QUANTITY[id218] occurrences matches {1} matches {
+                                                                property matches {[at153]}
+                                                                units matches {"mg"}
+                                                            }
+                                                        }
+                                                    }
+                                                    ELEMENT[id32] occurrences matches {0..1} matches {    -- *New element(pt)
+                                                        value existence matches {1} matches {
+                                                            DV_QUANTITY[id219] occurrences matches {1} matches {
+                                                                property matches {[at153]}
+                                                                units matches {"mg"}
+                                                            }
+                                                        }
+                                                    }
+                                                    ELEMENT[id33] occurrences matches {0..1} matches {    -- *New element(pt)
+                                                        value existence matches {1} matches {
+                                                            DV_QUANTITY[id220] occurrences matches {1} matches {
+                                                                property matches {[at153]}
+                                                                units matches {"mg"}
+                                                            }
+                                                        }
+                                                    }
+                                                    ELEMENT[id34] occurrences matches {0..1} matches {    -- *New element(pt)
+                                                        value existence matches {1} matches {
+                                                            DV_QUANTITY[id221] occurrences matches {1} matches {
+                                                                property matches {[at153]}
+                                                                units matches {"mg"}
+                                                            }
+                                                        }
+                                                    }
+                                                    ELEMENT[id35] occurrences matches {0..1} matches {    -- *New element(pt)
+                                                        value existence matches {1} matches {
+                                                            DV_QUANTITY[id222] occurrences matches {1} matches {
+                                                                property matches {[at153]}
+                                                                units matches {"mg"}
+                                                            }
+                                                        }
+                                                    }
+                                                }
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+            CLUSTER[id5] occurrences matches {0..1} matches {    -- Micronutrients
+                items existence matches {1} cardinality matches {1..*; unordered} matches {
+                    CLUSTER[id77] occurrences matches {0..1} matches {    -- *New cluster(pt)
+                        items existence matches {1} cardinality matches {1..*; unordered} matches {
+                            ELEMENT[id80] occurrences matches {0..1} matches {    -- *New element(pt)
+                                value existence matches {1} matches {
+                                    DV_QUANTITY[id223] occurrences matches {1} matches {
+                                        property matches {[at153]}
+                                        units matches {"ug"}
+                                    }
+                                }
+                            }
+                            ELEMENT[id81] occurrences matches {0..1} matches {    -- *New element(pt)
+                                value existence matches {1} matches {
+                                    DV_QUANTITY[id224] occurrences matches {1} matches {
+                                        property matches {[at153]}
+                                        units matches {"mg"}
+                                    }
+                                }
+                            }
+                            ELEMENT[id82] occurrences matches {0..1} matches {    -- *New element(pt)
+                                value existence matches {1} matches {
+                                    DV_QUANTITY[id225] occurrences matches {1} matches {
+                                        property matches {[at153]}
+                                        units matches {"ug"}
+                                    }
+                                }
+                            }
+                            ELEMENT[id83] occurrences matches {0..1} matches {    -- *New element(pt)
+                                value existence matches {1} matches {
+                                    DV_QUANTITY[id226] occurrences matches {1} matches {
+                                        property matches {[at153]}
+                                        units matches {"ug"}
+                                    }
+                                }
+                            }
+                            ELEMENT[id84] occurrences matches {0..1} matches {    -- *New element(pt)
+                                value existence matches {1} matches {
+                                    DV_QUANTITY[id227] occurrences matches {1} matches {
+                                        property matches {[at153]}
+                                        units matches {"mg"}
+                                    }
+                                }
+                            }
+                            ELEMENT[id85] occurrences matches {0..1} matches {    -- *New element(pt)
+                                value existence matches {1} matches {
+                                    DV_QUANTITY[id228] occurrences matches {1} matches {
+                                        property matches {[at153]}
+                                        units matches {"mg"}
+                                    }
+                                }
+                            }
+                            ELEMENT[id86] occurrences matches {0..1} matches {    -- *New element(pt)
+                                value existence matches {1} matches {
+                                    DV_QUANTITY[id229] occurrences matches {1} matches {
+                                        property matches {[at153]}
+                                        units matches {"ug"}
+                                    }
+                                }
+                            }
+                            ELEMENT[id87] occurrences matches {0..1} matches {    -- *New element(pt)
+                                value existence matches {1} matches {
+                                    DV_QUANTITY[id230] occurrences matches {1} matches {
+                                        property matches {[at231]}
+                                        [magnitude, units] matches {
+                                            [{|>=0.0|}, {"IU"}]
+                                        }
+                                    }
+                                }
+                            }
+                            ELEMENT[id88] occurrences matches {0..1} matches {    -- *New element(pt)
+                                value existence matches {1} matches {
+                                    DV_QUANTITY[id232] occurrences matches {1} matches {
+                                        property matches {[at153]}
+                                        units matches {"mg"}
+                                    }
+                                }
+                            }
+                            ELEMENT[id89] occurrences matches {0..1} matches {    -- *New element(pt)
+                                value existence matches {1} matches {
+                                    DV_QUANTITY[id233] occurrences matches {1} matches {
+                                        property matches {[at153]}
+                                        units matches {"ug"}
+                                    }
+                                }
+                            }
+                            ELEMENT[id90] occurrences matches {0..1} matches {    -- *New element(pt)
+                                value existence matches {1} matches {
+                                    DV_QUANTITY[id234] occurrences matches {1} matches {
+                                        property matches {[at153]}
+                                        units matches {"ug"}
+                                    }
+                                }
+                            }
+                            ELEMENT[id91] occurrences matches {0..1} matches {    -- *New element(pt)
+                                value existence matches {1} matches {
+                                    DV_QUANTITY[id235] occurrences matches {1} matches {
+                                        property matches {[at153]}
+                                        units matches {"mg"}
+                                    }
+                                }
+                            }
+                            ELEMENT[id92] occurrences matches {0..1} matches {    -- *New element(pt)
+                                value existence matches {1} matches {
+                                    DV_QUANTITY[id236] occurrences matches {1} matches {
+                                        property matches {[at153]}
+                                        units matches {"mg"}
+                                    }
+                                }
+                            }
+                            ELEMENT[id93] occurrences matches {0..1} matches {    -- *New element(pt)
+                                value existence matches {1} matches {
+                                    DV_QUANTITY[id237] occurrences matches {1} matches {
+                                        property matches {[at153]}
+                                        units matches {"mg"}
+                                    }
+                                }
+                            }
+                            ELEMENT[id94] occurrences matches {0..1} matches {    -- *New element(pt)
+                                value existence matches {1} matches {
+                                    DV_QUANTITY[id238] occurrences matches {1} matches {
+                                        property matches {[at153]}
+                                        units matches {"mg"}
+                                    }
+                                }
+                            }
+                        }
+                    }
+                    CLUSTER[id78] occurrences matches {0..1} matches {    -- *New cluster(pt)
+                        items existence matches {1} cardinality matches {1..*; unordered} matches {
+                            ELEMENT[id95] occurrences matches {0..1} matches {    -- *New element(pt)
+                                value existence matches {1} matches {
+                                    DV_QUANTITY[id239] occurrences matches {1} matches {
+                                        property matches {[at153]}
+                                        units matches {"mg"}
+                                    }
+                                }
+                            }
+                            ELEMENT[id96] occurrences matches {0..1} matches {    -- *New element(pt)
+                                value existence matches {1} matches {
+                                    DV_QUANTITY[id240] occurrences matches {1} matches {
+                                        property matches {[at153]}
+                                        units matches {"ug"}
+                                    }
+                                }
+                            }
+                            ELEMENT[id97] occurrences matches {0..1} matches {    -- *New element(pt)
+                                value existence matches {1} matches {
+                                    DV_QUANTITY[id241] occurrences matches {1} matches {
+                                        property matches {[at153]}
+                                        units matches {"ug"}
+                                    }
+                                }
+                            }
+                            ELEMENT[id98] occurrences matches {0..1} matches {    -- *New element(pt)
+                                value existence matches {1} matches {
+                                    DV_QUANTITY[id242] occurrences matches {1} matches {
+                                        property matches {[at153]}
+                                        units matches {"mg"}
+                                    }
+                                }
+                            }
+                            ELEMENT[id99] occurrences matches {0..1} matches {    -- *New element(pt)
+                                value existence matches {1} matches {
+                                    DV_QUANTITY[id243] occurrences matches {1} matches {
+                                        property matches {[at153]}
+                                        units matches {"ug"}
+                                    }
+                                }
+                            }
+                            ELEMENT[id100] occurrences matches {0..1} matches {    -- *New element(pt)
+                                value existence matches {1} matches {
+                                    DV_QUANTITY[id244] occurrences matches {1} matches {
+                                        property matches {[at153]}
+                                        units matches {"mg"}
+                                    }
+                                }
+                            }
+                            ELEMENT[id101] occurrences matches {0..1} matches {    -- *New element(pt)
+                                value existence matches {1} matches {
+                                    DV_QUANTITY[id245] occurrences matches {1} matches {
+                                        property matches {[at153]}
+                                        units matches {"mg"}
+                                    }
+                                }
+                            }
+                            ELEMENT[id102] occurrences matches {0..1} matches {    -- *New element(pt)
+                                value existence matches {1} matches {
+                                    DV_QUANTITY[id246] occurrences matches {1} matches {
+                                        property matches {[at153]}
+                                        units matches {"mg"}
+                                    }
+                                }
+                            }
+                            ELEMENT[id103] occurrences matches {0..1} matches {    -- *New element(pt)
+                                value existence matches {1} matches {
+                                    DV_QUANTITY[id247] occurrences matches {1} matches {
+                                        property matches {[at153]}
+                                        units matches {"ug"}
+                                    }
+                                }
+                            }
+                            ELEMENT[id104] occurrences matches {0..1} matches {    -- *New element(pt)
+                                value existence matches {1} matches {
+                                    DV_QUANTITY[id248] occurrences matches {1} matches {
+                                        property matches {[at153]}
+                                        units matches {"mg"}
+                                    }
+                                }
+                            }
+                            ELEMENT[id105] occurrences matches {0..1} matches {    -- *New element(pt)
+                                value existence matches {1} matches {
+                                    DV_QUANTITY[id249] occurrences matches {1} matches {
+                                        property matches {[at153]}
+                                        units matches {"gm"}
+                                    }
+                                }
+                            }
+                            ELEMENT[id106] occurrences matches {0..1} matches {    -- *New element(pt)
+                                value existence matches {1} matches {
+                                    DV_QUANTITY[id250] occurrences matches {1} matches {
+                                        property matches {[at153]}
+                                        units matches {"ug"}
+                                    }
+                                }
+                            }
+                            ELEMENT[id107] occurrences matches {0..1} matches {    -- *New element(pt)
+                                value existence matches {1} matches {
+                                    DV_QUANTITY[id251] occurrences matches {1} matches {
+                                        property matches {[at153]}
+                                        units matches {"gm"}
+                                    }
+                                }
+                            }
+                            ELEMENT[id108] occurrences matches {0..1} matches {    -- *New element(pt)
+                                value existence matches {1} matches {
+                                    DV_QUANTITY[id252] occurrences matches {1} matches {
+                                        property matches {[at153]}
+                                        units matches {"gm"}
+                                    }
+                                }
+                            }
+                            ELEMENT[id109] occurrences matches {0..1} matches {    -- *New element(pt)
+                                value existence matches {1} matches {
+                                    DV_QUANTITY[id253] occurrences matches {1} matches {
+                                        property matches {[at153]}
+                                        units matches {"mg"}
+                                    }
+                                }
+                            }
+                            ELEMENT[id110] occurrences matches {0..1} matches {    -- *New element(pt)
+                                value existence matches {1} matches {
+                                    DV_QUANTITY[id254] occurrences matches {1} matches {
+                                        property matches {[at153]}
+                                        units matches {"ug"}
+                                    }
+                                }
+                            }
+                            ELEMENT[id111] occurrences matches {0..1} matches {    -- *New element(pt)
+                                value existence matches {1} matches {
+                                    DV_QUANTITY[id255] occurrences matches {1} matches {
+                                        property matches {[at153]}
+                                        units matches {"mg"}
+                                    }
+                                }
+                            }
+                            ELEMENT[id112] occurrences matches {0..1} matches {    -- *New element(pt)
+                                value existence matches {1} matches {
+                                    DV_QUANTITY[id256] occurrences matches {1} matches {
+                                        property matches {[at153]}
+                                        units matches {"mg"}
+                                    }
+                                }
+                            }
+                            ELEMENT[id113] occurrences matches {0..1} matches {    -- *New element(pt)
+                                value existence matches {1} matches {
+                                    DV_QUANTITY[id257] occurrences matches {1} matches {
+                                        property matches {[at153]}
+                                        units matches {"mg"}
+                                    }
+                                }
+                            }
+                            ELEMENT[id114] occurrences matches {0..1} matches {    -- *New element(pt)
+                                value existence matches {1} matches {
+                                    DV_QUANTITY[id258] occurrences matches {1} matches {
+                                        property matches {[at153]}
+                                        units matches {"mg"}
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+            ELEMENT[id79] occurrences matches {0..1} matches {    -- *New element(pt)
+                value existence matches {1} matches {
+                    DV_QUANTITY[id259] occurrences matches {1} matches {
+                        property matches {[at260]}
+                        units matches {"l"}
+                    }
+                }
+            }
+        }
+    }
+
+terminology
+    term_definitions = <
+        ["en-us"] = <
+            ["at151"] = <
+                text = <"*Energy(en)">
+                description = <"*Energy(en)">
+            >
+            ["at153"] = <
+                text = <"*Mass(en)">
+                description = <"*Mass(en)">
+            >
+            ["at231"] = <
+                text = <"*Mass (IU)(en)">
+                description = <"*Mass (IU)(en)">
+            >
+            ["at260"] = <
+                text = <"*Volume(en)">
+                description = <"*Volume(en)">
+            >
+            ["id1"] = <
+                text = <"Dietary nutrients">
+                description = <"This archetype describes the amount of nutrients the individual intake in a period of time.">
+            >
+            ["id3"] = <
+                text = <"Nutrients">
+                description = <"Assessment of nutrients of an individual. ">
+            >
+            ["id4"] = <
+                text = <"Macronutrients">
+                description = <"Measurement of the macronutrients of an individual.  ">
+            >
+            ["id5"] = <
+                text = <"Micronutrients">
+                description = <"Assessment of micronutrients of an individual. ">
+            >
+            ["id7"] = <
+                text = <"Proteins">
+                description = <"Assessment of protein of an individual. ">
+            >
+            ["id9"] = <
+                text = <"Lipids">
+                description = <"Measurement of the lipids (They are the largest source of energy in the body and are necessary for absorption of liposoluble vitamins and carotenoids). ">
+            >
+            ["id10"] = <
+                text = <"Carbohydrate">
+                description = <"Assessment of carbohydrates of an individual. ">
+            >
+            ["id11"] = <
+                text = <"Amino acids">
+                description = <"Assessment of amino acids of an individual. ">
+            >
+            ["id12"] = <
+                text = <"Dietary proteins">
+                description = <"Assessment of protein. ">
+            >
+            ["id13"] = <
+                text = <"Conditionally essential amino acids">
+                description = <"Assessment of conditionally essential amino acids  are these  sinthetized in human organism (not essential), but they are used more faster then produced. ">
+            >
+            ["id14"] = <
+                text = <"Essential">
+                description = <"Assessment of essential amino acids of an individual.  ">
+            >
+            ["id15"] = <
+                text = <"Not essential">
+                description = <"Assessment of not essential amino acids of an individual. ">
+            >
+            ["id16"] = <
+                text = <"Alanine">
+                description = <"Assessment of alanine amino acid. ">
+            >
+            ["id17"] = <
+                text = <"Aspartic acid">
+                description = <"Assessment of aspartic acid  amino acid. ">
+            >
+            ["id18"] = <
+                text = <"Aspargine">
+                description = <"Assessment of aspargineis amino acid. ">
+            >
+            ["id19"] = <
+                text = <"Glutamic acid">
+                description = <"Assessment of glutamic amino acid. ">
+            >
+            ["id20"] = <
+                text = <"Serine">
+                description = <"Assessment of serine amino acid. ">
+            >
+            ["id21"] = <
+                text = <"Histidine">
+                description = <"Histidine is a type of essential amino acids.">
+            >
+            ["id22"] = <
+                text = <"Isoleucine">
+                description = <"Isoleucine is a type of essential amino acids.">
+            >
+            ["id23"] = <
+                text = <"Leucine">
+                description = <"Assessment of Leucine is a type of essential amino acids.">
+            >
+            ["id24"] = <
+                text = <"Lysine">
+                description = <"Assessment of lysine amino acid.">
+            >
+            ["id25"] = <
+                text = <"Methionine">
+                description = <"Assessment of methionine amino acid.">
+            >
+            ["id26"] = <
+                text = <"Phenylalanine">
+                description = <"Assessment of phenylalanine amino acid.">
+            >
+            ["id27"] = <
+                text = <"Threonine">
+                description = <"Assessment of threonine amino acids.">
+            >
+            ["id28"] = <
+                text = <"Tryptophan">
+                description = <"Assessment of tryptophan amino acid.">
+            >
+            ["id29"] = <
+                text = <"Valine">
+                description = <"Assessment of valine amino acid. ">
+            >
+            ["id30"] = <
+                text = <"Arginine">
+                description = <"Assessment of argine amino acids.">
+            >
+            ["id31"] = <
+                text = <"Cysteine">
+                description = <"Assessment of cysteine amino acid.">
+            >
+            ["id32"] = <
+                text = <"Glutamine">
+                description = <"Assessment of glutamine amino acids.">
+            >
+            ["id33"] = <
+                text = <"Glycine">
+                description = <"Assessment of glycine amino acids.">
+            >
+            ["id34"] = <
+                text = <"Proline">
+                description = <"Assessment of proline amino acids.">
+            >
+            ["id35"] = <
+                text = <"Tyrosine">
+                description = <"Assessment of tyrosine amino acids.">
+            >
+            ["id36"] = <
+                text = <"Total fat">
+                description = <"Measurement of dietary lipids. ">
+            >
+            ["id37"] = <
+                text = <"Dietary cholesterol">
+                description = <"Measurement of dietary cholesterol. ">
+            >
+            ["id38"] = <
+                text = <"Fatty acids">
+                description = <"Assessment of dietary fatty acids of an individual.">
+            >
+            ["id39"] = <
+                text = <"Saturated fatty acids">
+                description = <"Assessment of dietary saturated fatty acids of an individual. ">
+            >
+            ["id40"] = <
+                text = <"Total saturated fatty acids">
+                description = <"Assessment of dietary saturated fat acids. ">
+            >
+            ["id41"] = <
+                text = <"Caprylic acid">
+                description = <"Assessment of dietary caprylic acid. ">
+            >
+            ["id42"] = <
+                text = <"Caproic acid">
+                description = <"Assessment of caproic acid. ">
+            >
+            ["id43"] = <
+                text = <"Lauric acid">
+                description = <"Assessment of lauric acid. ">
+            >
+            ["id44"] = <
+                text = <"Myristic acid">
+                description = <"Assessment of myristic acid.">
+            >
+            ["id45"] = <
+                text = <"Palmitic acid">
+                description = <"Assessment of palmitic acid.">
+            >
+            ["id46"] = <
+                text = <"Stearic acid">
+                description = <"Assessment of stearic acid. ">
+            >
+            ["id47"] = <
+                text = <"Mounsaturated fatty acids">
+                description = <"Assessment of dietary monounsaturated fatty acids (n-9) of an individual.  ">
+            >
+            ["id48"] = <
+                text = <"Total monousaturated fatty acids">
+                description = <"Assessment of dietary monounsaturated fatty acids (n-9). ">
+            >
+            ["id49"] = <
+                text = <"Myristoleic acid">
+                description = <"Assessment of myristoleic acid.    ">
+            >
+            ["id50"] = <
+                text = <"Palmitoleic acid">
+                description = <"Assessment of palmitoleic acid. ">
+            >
+            ["id51"] = <
+                text = <"Oleic acid">
+                description = <"Assessment of oleic acid.">
+            >
+            ["id52"] = <
+                text = <"Cis-vaccenic acid">
+                description = <"Assessment of cis-vaccenic acid  is a type of monousaturated fatty acids. ">
+            >
+            ["id53"] = <
+                text = <"Eicosenoic acid">
+                description = <"Assessment of eicosenoic acid. ">
+            >
+            ["id54"] = <
+                text = <"Docosapentaenoic acid">
+                description = <"Assessment of docosapentaenoic acid.">
+            >
+            ["id55"] = <
+                text = <"Polyunsaturated fatty acids">
+                description = <"Assessment of polyunsaturated acids which include the n-6 fatty acids and n-3 fatty acids.">
+            >
+            ["id56"] = <
+                text = <"Total polyunsaturated fatty acids">
+                description = <"Assessment of polyunsaturated acids  of an individual. ">
+            >
+            ["id57"] = <
+                text = <"(n-3)">
+                description = <"Measurement of n-3 fatty acids of an individual. ">
+            >
+            ["id58"] = <
+                text = <"(n-6)">
+                description = <"Assessment of linoleic acid of an individual. ">
+            >
+            ["id59"] = <
+                text = <"Alpha linolenic acid (n-3)">
+                description = <"Assessment of a-linolenic acid.">
+            >
+            ["id60"] = <
+                text = <"Eicosapentaenoic acid">
+                description = <"Assessment of eicosapentaenoic  acid.">
+            >
+            ["id61"] = <
+                text = <"Docosahexaenoic acid">
+                description = <"Assessment of docosahexaenoic acid .">
+            >
+            ["id62"] = <
+                text = <"Docosapentaenoic acid">
+                description = <"Assessment of docosapentaenoic acid. ">
+            >
+            ["id63"] = <
+                text = <"Linoleic acid">
+                description = <"Assessment of linoleic acid.">
+            >
+            ["id64"] = <
+                text = <"Gama-linoleic acid">
+                description = <"Assessment of gama-linoleic acid.">
+            >
+            ["id65"] = <
+                text = <"Dihomo-gama-linoleic acid">
+                description = <"Assessment of dihomo-gama-linoleic acid.">
+            >
+            ["id66"] = <
+                text = <"Arachidonic acid">
+                description = <"Assessment of arachidonic acid.">
+            >
+            ["id67"] = <
+                text = <"Adrenic acid">
+                description = <"Assessment of adrenic acid. ">
+            >
+            ["id68"] = <
+                text = <"Docosapentaenoic acid">
+                description = <"Assessment of docosapentaenoic acid.">
+            >
+            ["id69"] = <
+                text = <"Trans fatty acid">
+                description = <"Assessment of dietary  trans fatty acids. ">
+            >
+            ["id70"] = <
+                text = <"Dietary total carbohydrate">
+                description = <"Assessment of carbohydrate. ">
+            >
+            ["id77"] = <
+                text = <"Vitamins ">
+                description = <"Assessment of vitamins of an individual. ">
+            >
+            ["id78"] = <
+                text = <"Minerals">
+                description = <"Assessment of minerals of an individual. ">
+            >
+            ["id79"] = <
+                text = <"Water intake ">
+                description = <"Measurement of water intake, that is the main constituent of the human body and essential for homeostasis and life. ">
+            >
+            ["id80"] = <
+                text = <"Vitamin A">
+                description = <"Assessment of vitamin A. ">
+            >
+            ["id81"] = <
+                text = <"Vitamin B6">
+                description = <"Assessment of vitamin B6 (pyridoxine and related compounds). ">
+            >
+            ["id82"] = <
+                text = <"Vitamin B12">
+                description = <"Assessment of v itamin B12 (cobalamin). ">
+            >
+            ["id83"] = <
+                text = <"Biotin ">
+                description = <"Assessment of biotin. ">
+            >
+            ["id84"] = <
+                text = <"Vitamin C">
+                description = <"Assessment of vitamin C (ascorbic acid). ">
+            >
+            ["id85"] = <
+                text = <"Carotenoids">
+                description = <"Assessment of carotenoids. ">
+            >
+            ["id86"] = <
+                text = <"Choline">
+                description = <"Assessment of choline.">
+            >
+            ["id87"] = <
+                text = <"Vitamin D">
+                description = <"Assessment of vitamina D ">
+            >
+            ["id88"] = <
+                text = <"Vitamin E">
+                description = <"Assessment of Vitamin E which is a fat-soluble nutrient that functions as a chain-breaking
+antioxidant in the body by preventing the spread of free-radical reactions.">
+            >
+            ["id89"] = <
+                text = <"Folate">
+                description = <"Assessment of Folate which is a B vitamin that functions as a coenzyme in the metabolism of
+nucleic and amino acids.">
+            >
+            ["id90"] = <
+                text = <"Vitamin K">
+                description = <"Assessment of vitamin K which presents functions such as a coenzyme for biological reactions involved in
+blood coagulation and bone metabolism.">
+            >
+            ["id91"] = <
+                text = <"Niacin ">
+                description = <"Assessment of niacin  which is involved in many biological
+reactions, including intracellular respiration and fatty acid synthesis.">
+            >
+            ["id92"] = <
+                text = <"Pantothenic acid">
+                description = <"Assessment of pantothenic acid functions which is a component of coenzyme A (CoA), which is involved in fatty acid metabolism.">
+            >
+            ["id93"] = <
+                text = <"Riboflavin ">
+                description = <"Assessment of riboflavin (vitamin B2)  which presents functions as a coenzyme for numerous oxidation–reduction reactions in several metabolic pathways and in energy production.">
+            >
+            ["id94"] = <
+                text = <"Thiamin">
+                description = <"Assessment of thiamin, which is also known as vitamin B1 and aneurin, functions as a coenzyme in the metabolism of carbohydrates and branched-chain amino acids.">
+            >
+            ["id95"] = <
+                text = <"Calcium">
+                description = <"Assessment of calcium  which plays a key role in bone health. In fact, more than 99 percent of total body calcium is found in the bones and teeth. Calcium is also
+involved in vascular, neuromuscular, and glandular functions in the
+body.">
+            >
+            ["id96"] = <
+                text = <"Chromium">
+                description = <"Assessment of chromium which  presents potentiates the action of insulin and may improve glucose
+tolerance. ">
+            >
+            ["id97"] = <
+                text = <"Copper">
+                description = <"Assessement of copper functions  as a component of several metalloenzymes, which act
+as oxidases in the reduction of molecular oxygen.">
+            >
+            ["id98"] = <
+                text = <"Fluoride">
+                description = <"Assessment of fluoride, which  is vital for the health of teeth and bones. About 99 percent of body fluoride is found in calcified tissues, where it protects against dental caries and can stimulate new bone formation.">
+            >
+            ["id99"] = <
+                text = <"Iodine">
+                description = <"Assessment of Iodine which is an essential component of thyroid hormones that are involved in the regulation of various enzymes and metabolic processes.m">
+            >
+            ["id100"] = <
+                text = <"Iron">
+                description = <"Assessment of iron which is a critical component of several proteins, including enzymes, cytochromes, myoglobin, and hemoglobin, the latter of which transports oxygen throughout the body.">
+            >
+            ["id101"] = <
+                text = <"Magnesium">
+                description = <"Assessment of magnesium which is involved in more than 300 enzymatic processes in the
+body, as well as in bone health and in the maintenance of intracellular
+levels of potassium and calcium.">
+            >
+            ["id102"] = <
+                text = <"Manganese">
+                description = <"Assessment of manganese which is involved in the formation of bone and in specific reactions related to amino acid, cholesterol, and carbohydrate metabolism.">
+            >
+            ["id103"] = <
+                text = <"Molybdenum">
+                description = <"Assessment of molybdenum which presents functions as a cofactor for several enzymes, including
+sulfite oxidase, xanthine oxidase, and aldehyde oxidase.">
+            >
+            ["id104"] = <
+                text = <"Phosphorus">
+                description = <"Assessment of phosphorus is found in nature (e.g., foods, water, and living
+tissues) primarily as phosphate (PO4).">
+            >
+            ["id105"] = <
+                text = <"Potassium">
+                description = <"Assessment of the potassium which is the main intracellular cation in the body and is
+required for normal cellular function.">
+            >
+            ["id106"] = <
+                text = <"Selenium">
+                description = <"Assessment of selenium, which is an antioxidant nutrient involved in the defense against oxidative stress.">
+            >
+            ["id107"] = <
+                text = <"Sodium">
+                description = <"Assessment of sodium  which is necessary to maintain extracellular fluid volume
+and plasma osmolality. ">
+            >
+            ["id108"] = <
+                text = <"Chloride">
+                description = <"Assessment of chloride which is necessary to maintain extracellular fluid volume
+and plasma osmolality.">
+            >
+            ["id109"] = <
+                text = <"Zinc">
+                description = <"Assessment of zinc which is crucial for growth and development. It facilitates several enzymatic processes related to the metabolism of protein, carbohydrates, and fats.">
+            >
+            ["id110"] = <
+                text = <"Arsenic">
+                description = <"Assessment of arsenic, that play a beneficial role in some physiological processes of certain. 
+animal species.">
+            >
+            ["id111"] = <
+                text = <"Boron">
+                description = <"Assessment of the  boron which play a beneficial role in some physiological processes of certain
+animal species. ">
+            >
+            ["id112"] = <
+                text = <"Nickel">
+                description = <"Assessment of the nickel that play a beneficial role in some physiological processes of certain
+animal species.">
+            >
+            ["id113"] = <
+                text = <"Silicon">
+                description = <"Assessment of the silicon, which play a beneficial role in some physiological processes of certain. animal species.">
+            >
+            ["id114"] = <
+                text = <"Vanadium">
+                description = <"Assessment of the 
+vanadium that play a beneficial role in some physiological processes of certain. 
+animal species.">
+            >
+            ["id116"] = <
+                text = <"Sugars">
+                description = <"Assessment of sugars (1-2 degree of polymerization) of an individual. ">
+            >
+            ["id117"] = <
+                text = <"Oligosaccharides">
+                description = <"Assessment of oligosaccharides (They have 3-9 degree of polymerization of an individual). ">
+            >
+            ["id118"] = <
+                text = <"Polysaccharides">
+                description = <"Assessment of polysaccharides (They have more than 9 degree of polymerization). ">
+            >
+            ["id119"] = <
+                text = <"Monosaccharides">
+                description = <"Assessment of monosaccharides (simple  carbohydrate) of an individual.  ">
+            >
+            ["id120"] = <
+                text = <"Disaccharides">
+                description = <"Assessment of disaccharides (carbohydrate constitued by two units of monossacharides). ">
+            >
+            ["id121"] = <
+                text = <"Polyols">
+                description = <"Assessment of polyol. ">
+            >
+            ["id122"] = <
+                text = <"Glucose">
+                description = <"Assessment of glucose. ">
+            >
+            ["id124"] = <
+                text = <"Galactose">
+                description = <"Assessment of galactose. ">
+            >
+            ["id125"] = <
+                text = <"Fructose">
+                description = <"Assessment of fructose.   ">
+            >
+            ["id126"] = <
+                text = <"Sucrose">
+                description = <"Assessment of sucrose. ">
+            >
+            ["id127"] = <
+                text = <"Lactose">
+                description = <"Assessment of lactose. ">
+            >
+            ["id128"] = <
+                text = <"Tetralose">
+                description = <"Assessment of tetralose. ">
+            >
+            ["id129"] = <
+                text = <"Sorbitol">
+                description = <"Assessment of sorbitol. ">
+            >
+            ["id130"] = <
+                text = <"Mannitol">
+                description = <"Assessment of mannitol. ">
+            >
+            ["id131"] = <
+                text = <"Malto-oligosaccharides">
+                description = <"Assessment of malto-oligosaccharides of an individual. ">
+            >
+            ["id132"] = <
+                text = <"Others oligosaccharides">
+                description = <"Assessment of others oligosaccharides of an individual. ">
+            >
+            ["id134"] = <
+                text = <"Maltodextrins">
+                description = <"Assessment of maltodextrina  is a type of sugar of an individual. ">
+            >
+            ["id135"] = <
+                text = <"Rafinose">
+                description = <"Assessment of rafinose.">
+            >
+            ["id136"] = <
+                text = <"Staccose">
+                description = <"Assessment of staccose. ">
+            >
+            ["id137"] = <
+                text = <"Fruit-oligosaccharides">
+                description = <"Assessment of fruit-oligosaccharides (FOS)  is a type of sugar. ">
+            >
+            ["id138"] = <
+                text = <"Starch">
+                description = <"Measurement of starch, which is a complex carbohydrate and main energy reserve in plants, is present in grains, legumes, tubers, fruits, and root vegetables. ">
+            >
+            ["id139"] = <
+                text = <"Non-starch polysaccharides">
+                description = <"Assessment of non-starch polysaccharides which are also known as dietary fiber. ">
+            >
+            ["id140"] = <
+                text = <"Amylose">
+                description = <"Assessment of amylose. ">
+            >
+            ["id141"] = <
+                text = <"Amylopectin">
+                description = <"Assessment of amylopectin. ">
+            >
+            ["id142"] = <
+                text = <"Starch-resistant">
+                description = <"Assessment of starch-resistant  is a type of sugar. ">
+            >
+            ["id143"] = <
+                text = <"Cellulose">
+                description = <"Assessment of cellulose. ">
+            >
+            ["id144"] = <
+                text = <"Hemicellulose">
+                description = <"Assessment of hemicellulose. ">
+            >
+            ["id145"] = <
+                text = <"Pectins">
+                description = <"Assessment of pectins.  ">
+            >
+            ["id146"] = <
+                text = <"Hydrocolloids">
+                description = <"Assessment of hydrocolloids is a type of sugar. ">
+            >
+            ["id147"] = <
+                text = <"Total fiber ">
+                description = <"Assessment of dietary fiber, which is the portion of food which is derived from cellular walls of plants which is digested very poorly by human beings. ">
+            >
+            ["id148"] = <
+                text = <"Energy">
+                description = <"Assessment of the energy is a number of calories intake by food (sum of macronutrients).">
+            >
+            ["id149"] = <
+                text = <"Total energy intake ">
+                description = <"Measurement of energy intake. It is the amount of food  intake (sum of macronutrients) by the individual. ">
+            >
+        >
+        ["pt"] = <
+            ["at151"] = <
+                text = <"*Energy(en)">
+                description = <"*Energy(en)">
+            >
+            ["at153"] = <
+                text = <"*Mass(en)">
+                description = <"*Mass(en)">
+            >
+            ["at231"] = <
+                text = <"*Mass (IU)(en)">
+                description = <"*Mass (IU)(en)">
+            >
+            ["at260"] = <
+                text = <"*Volume(en)">
+                description = <"*Volume(en)">
+            >
+            ["id1"] = <
+                text = <"Dietary nutrients">
+                description = <"This archetype describes the amount of nutrients the individual intake in a period of time. ">
+            >
+            ["id3"] = <
+                text = <"Nutrients">
+                description = <"Assessment of nutrients. ">
+            >
+            ["id4"] = <
+                text = <"Macronutrients">
+                description = <"*">
+            >
+            ["id5"] = <
+                text = <"Micronutrients">
+                description = <"*">
+            >
+            ["id7"] = <
+                text = <"Proteins">
+                description = <"Protein is the mainly component structural of body cell. ">
+            >
+            ["id9"] = <
+                text = <"Lipids">
+                description = <"The lipids are largest source of energy in the body and are necessary for absorption of liposoluble vitamins and carotenoids.">
+            >
+            ["id10"] = <
+                text = <"Carbohydrate">
+                description = <"*">
+            >
+            ["id11"] = <
+                text = <"*New cluster(pt)">
+                description = <"**(pt)">
+            >
+            ["id12"] = <
+                text = <"*New element(pt)">
+                description = <"**(pt)">
+            >
+            ["id13"] = <
+                text = <"*New cluster(pt)">
+                description = <"**(pt)">
+            >
+            ["id14"] = <
+                text = <"*New cluster(pt)">
+                description = <"**(pt)">
+            >
+            ["id15"] = <
+                text = <"*New cluster(pt)">
+                description = <"**(pt)">
+            >
+            ["id16"] = <
+                text = <"*New element(pt)">
+                description = <"**(pt)">
+            >
+            ["id17"] = <
+                text = <"*New element(pt)">
+                description = <"**(pt)">
+            >
+            ["id18"] = <
+                text = <"*New element(pt)">
+                description = <"**(pt)">
+            >
+            ["id19"] = <
+                text = <"*New element(pt)">
+                description = <"**(pt)">
+            >
+            ["id20"] = <
+                text = <"*New element(pt)">
+                description = <"**(pt)">
+            >
+            ["id21"] = <
+                text = <"*New element(pt)">
+                description = <"**(pt)">
+            >
+            ["id22"] = <
+                text = <"*New element(pt)">
+                description = <"**(pt)">
+            >
+            ["id23"] = <
+                text = <"*New element(pt)">
+                description = <"**(pt)">
+            >
+            ["id24"] = <
+                text = <"*New element(pt)">
+                description = <"**(pt)">
+            >
+            ["id25"] = <
+                text = <"*New element(pt)">
+                description = <"**(pt)">
+            >
+            ["id26"] = <
+                text = <"*New element(pt)">
+                description = <"**(pt)">
+            >
+            ["id27"] = <
+                text = <"*New element(pt)">
+                description = <"**(pt)">
+            >
+            ["id28"] = <
+                text = <"*New element(pt)">
+                description = <"**(pt)">
+            >
+            ["id29"] = <
+                text = <"*New element(pt)">
+                description = <"**(pt)">
+            >
+            ["id30"] = <
+                text = <"*New element(pt)">
+                description = <"**(pt)">
+            >
+            ["id31"] = <
+                text = <"*New element(pt)">
+                description = <"**(pt)">
+            >
+            ["id32"] = <
+                text = <"*New element(pt)">
+                description = <"**(pt)">
+            >
+            ["id33"] = <
+                text = <"*New element(pt)">
+                description = <"**(pt)">
+            >
+            ["id34"] = <
+                text = <"*New element(pt)">
+                description = <"**(pt)">
+            >
+            ["id35"] = <
+                text = <"*New element(pt)">
+                description = <"**(pt)">
+            >
+            ["id36"] = <
+                text = <"*New element(pt)">
+                description = <"**(pt)">
+            >
+            ["id37"] = <
+                text = <"*New element(pt)">
+                description = <"**(pt)">
+            >
+            ["id38"] = <
+                text = <"*New cluster(pt)">
+                description = <"**(pt)">
+            >
+            ["id39"] = <
+                text = <"*New cluster(pt)">
+                description = <"**(pt)">
+            >
+            ["id40"] = <
+                text = <"*New element(pt)">
+                description = <"**(pt)">
+            >
+            ["id41"] = <
+                text = <"*New element(pt)">
+                description = <"**(pt)">
+            >
+            ["id42"] = <
+                text = <"*New element(pt)">
+                description = <"**(pt)">
+            >
+            ["id43"] = <
+                text = <"*New element(pt)">
+                description = <"**(pt)">
+            >
+            ["id44"] = <
+                text = <"*New element(pt)">
+                description = <"**(pt)">
+            >
+            ["id45"] = <
+                text = <"*New element(pt)">
+                description = <"**(pt)">
+            >
+            ["id46"] = <
+                text = <"*New element(pt)">
+                description = <"**(pt)">
+            >
+            ["id47"] = <
+                text = <"*New cluster(pt)">
+                description = <"**(pt)">
+            >
+            ["id48"] = <
+                text = <"*New element(pt)">
+                description = <"**(pt)">
+            >
+            ["id49"] = <
+                text = <"*New element(pt)">
+                description = <"**(pt)">
+            >
+            ["id50"] = <
+                text = <"*New element(pt)">
+                description = <"**(pt)">
+            >
+            ["id51"] = <
+                text = <"*New element(pt)">
+                description = <"**(pt)">
+            >
+            ["id52"] = <
+                text = <"*New element(pt)">
+                description = <"**(pt)">
+            >
+            ["id53"] = <
+                text = <"*New element(pt)">
+                description = <"**(pt)">
+            >
+            ["id54"] = <
+                text = <"*New element(pt)">
+                description = <"**(pt)">
+            >
+            ["id55"] = <
+                text = <"*New cluster(pt)">
+                description = <"**(pt)">
+            >
+            ["id56"] = <
+                text = <"*New element(pt)">
+                description = <"**(pt)">
+            >
+            ["id57"] = <
+                text = <"*New cluster(pt)">
+                description = <"**(pt)">
+            >
+            ["id58"] = <
+                text = <"*New cluster(pt)">
+                description = <"**(pt)">
+            >
+            ["id59"] = <
+                text = <"*New element(pt)">
+                description = <"**(pt)">
+            >
+            ["id60"] = <
+                text = <"*New element(pt)">
+                description = <"**(pt)">
+            >
+            ["id61"] = <
+                text = <"*New element(pt)">
+                description = <"**(pt)">
+            >
+            ["id62"] = <
+                text = <"*New element(pt)">
+                description = <"**(pt)">
+            >
+            ["id63"] = <
+                text = <"*New element(pt)">
+                description = <"**(pt)">
+            >
+            ["id64"] = <
+                text = <"*New element(pt)">
+                description = <"**(pt)">
+            >
+            ["id65"] = <
+                text = <"*New element(pt)">
+                description = <"**(pt)">
+            >
+            ["id66"] = <
+                text = <"*New element(pt)">
+                description = <"**(pt)">
+            >
+            ["id67"] = <
+                text = <"*New element(pt)">
+                description = <"**(pt)">
+            >
+            ["id68"] = <
+                text = <"*New element(pt)">
+                description = <"**(pt)">
+            >
+            ["id69"] = <
+                text = <"*New element(pt)">
+                description = <"**(pt)">
+            >
+            ["id70"] = <
+                text = <"*New element(pt)">
+                description = <"**(pt)">
+            >
+            ["id77"] = <
+                text = <"*New cluster(pt)">
+                description = <"**(pt)">
+            >
+            ["id78"] = <
+                text = <"*New cluster(pt)">
+                description = <"**(pt)">
+            >
+            ["id79"] = <
+                text = <"*New element(pt)">
+                description = <"**(pt)">
+            >
+            ["id80"] = <
+                text = <"*New element(pt)">
+                description = <"**(pt)">
+            >
+            ["id81"] = <
+                text = <"*New element(pt)">
+                description = <"**(pt)">
+            >
+            ["id82"] = <
+                text = <"*New element(pt)">
+                description = <"**(pt)">
+            >
+            ["id83"] = <
+                text = <"*New element(pt)">
+                description = <"**(pt)">
+            >
+            ["id84"] = <
+                text = <"*New element(pt)">
+                description = <"**(pt)">
+            >
+            ["id85"] = <
+                text = <"*New element(pt)">
+                description = <"**(pt)">
+            >
+            ["id86"] = <
+                text = <"*New element(pt)">
+                description = <"**(pt)">
+            >
+            ["id87"] = <
+                text = <"*New element(pt)">
+                description = <"**(pt)">
+            >
+            ["id88"] = <
+                text = <"*New element(pt)">
+                description = <"**(pt)">
+            >
+            ["id89"] = <
+                text = <"*New element(pt)">
+                description = <"**(pt)">
+            >
+            ["id90"] = <
+                text = <"*New element(pt)">
+                description = <"**(pt)">
+            >
+            ["id91"] = <
+                text = <"*New element(pt)">
+                description = <"**(pt)">
+            >
+            ["id92"] = <
+                text = <"*New element(pt)">
+                description = <"**(pt)">
+            >
+            ["id93"] = <
+                text = <"*New element(pt)">
+                description = <"**(pt)">
+            >
+            ["id94"] = <
+                text = <"*New element(pt)">
+                description = <"**(pt)">
+            >
+            ["id95"] = <
+                text = <"*New element(pt)">
+                description = <"**(pt)">
+            >
+            ["id96"] = <
+                text = <"*New element(pt)">
+                description = <"**(pt)">
+            >
+            ["id97"] = <
+                text = <"*New element(pt)">
+                description = <"**(pt)">
+            >
+            ["id98"] = <
+                text = <"*New element(pt)">
+                description = <"**(pt)">
+            >
+            ["id99"] = <
+                text = <"*New element(pt)">
+                description = <"**(pt)">
+            >
+            ["id100"] = <
+                text = <"*New element(pt)">
+                description = <"**(pt)">
+            >
+            ["id101"] = <
+                text = <"*New element(pt)">
+                description = <"**(pt)">
+            >
+            ["id102"] = <
+                text = <"*New element(pt)">
+                description = <"**(pt)">
+            >
+            ["id103"] = <
+                text = <"*New element(pt)">
+                description = <"**(pt)">
+            >
+            ["id104"] = <
+                text = <"*New element(pt)">
+                description = <"**(pt)">
+            >
+            ["id105"] = <
+                text = <"*New element(pt)">
+                description = <"**(pt)">
+            >
+            ["id106"] = <
+                text = <"*New element(pt)">
+                description = <"**(pt)">
+            >
+            ["id107"] = <
+                text = <"*New element(pt)">
+                description = <"**(pt)">
+            >
+            ["id108"] = <
+                text = <"*New element(pt)">
+                description = <"**(pt)">
+            >
+            ["id109"] = <
+                text = <"*New element(pt)">
+                description = <"**(pt)">
+            >
+            ["id110"] = <
+                text = <"*New element(pt)">
+                description = <"**(pt)">
+            >
+            ["id111"] = <
+                text = <"*New element(pt)">
+                description = <"**(pt)">
+            >
+            ["id112"] = <
+                text = <"*New element(pt)">
+                description = <"**(pt)">
+            >
+            ["id113"] = <
+                text = <"*New element(pt)">
+                description = <"**(pt)">
+            >
+            ["id114"] = <
+                text = <"*New element(pt)">
+                description = <"**(pt)">
+            >
+            ["id116"] = <
+                text = <"*New cluster(pt)">
+                description = <"**(pt)">
+            >
+            ["id117"] = <
+                text = <"*New cluster(pt)">
+                description = <"**(pt)">
+            >
+            ["id118"] = <
+                text = <"*New cluster(pt)">
+                description = <"**(pt)">
+            >
+            ["id119"] = <
+                text = <"*New cluster(pt)">
+                description = <"**(pt)">
+            >
+            ["id120"] = <
+                text = <"*New cluster(pt)">
+                description = <"**(pt)">
+            >
+            ["id121"] = <
+                text = <"*New cluster(pt)">
+                description = <"**(pt)">
+            >
+            ["id122"] = <
+                text = <"*New element(pt)">
+                description = <"**(pt)">
+            >
+            ["id124"] = <
+                text = <"*New element(pt)">
+                description = <"**(pt)">
+            >
+            ["id125"] = <
+                text = <"*New element(pt)">
+                description = <"**(pt)">
+            >
+            ["id126"] = <
+                text = <"*New element(pt)">
+                description = <"**(pt)">
+            >
+            ["id127"] = <
+                text = <"*New element(pt)">
+                description = <"**(pt)">
+            >
+            ["id128"] = <
+                text = <"*New element(pt)">
+                description = <"**(pt)">
+            >
+            ["id129"] = <
+                text = <"*New element(pt)">
+                description = <"**(pt)">
+            >
+            ["id130"] = <
+                text = <"*New element(pt)">
+                description = <"**(pt)">
+            >
+            ["id131"] = <
+                text = <"*New cluster(pt)">
+                description = <"**(pt)">
+            >
+            ["id132"] = <
+                text = <"*New cluster(pt)">
+                description = <"**(pt)">
+            >
+            ["id134"] = <
+                text = <"*New element(pt)">
+                description = <"**(pt)">
+            >
+            ["id135"] = <
+                text = <"*New element(pt)">
+                description = <"**(pt)">
+            >
+            ["id136"] = <
+                text = <"*New element(pt)">
+                description = <"**(pt)">
+            >
+            ["id137"] = <
+                text = <"*New element(pt)">
+                description = <"**(pt)">
+            >
+            ["id138"] = <
+                text = <"*New cluster(pt)">
+                description = <"**(pt)">
+            >
+            ["id139"] = <
+                text = <"*New cluster(pt)">
+                description = <"**(pt)">
+            >
+            ["id140"] = <
+                text = <"*New element(pt)">
+                description = <"**(pt)">
+            >
+            ["id141"] = <
+                text = <"*New element(pt)">
+                description = <"**(pt)">
+            >
+            ["id142"] = <
+                text = <"*New element(pt)">
+                description = <"**(pt)">
+            >
+            ["id143"] = <
+                text = <"*New element(pt)">
+                description = <"**(pt)">
+            >
+            ["id144"] = <
+                text = <"*New element(pt)">
+                description = <"**(pt)">
+            >
+            ["id145"] = <
+                text = <"*New element(pt)">
+                description = <"**(pt)">
+            >
+            ["id146"] = <
+                text = <"*New element(pt)">
+                description = <"**(pt)">
+            >
+            ["id147"] = <
+                text = <"*New element(pt)">
+                description = <"**(pt)">
+            >
+            ["id148"] = <
+                text = <"Energy ">
+                description = <"Energy is the amount of kcal intake by food (sum of macronutrients). ">
+            >
+            ["id149"] = <
+                text = <"Total energy intake ">
+                description = <"Energy intake is the amount of food  intake (sum of macronutrients) by the individual. ">
+            >
+        >
+    >
+    term_bindings = <
+        ["openehr"] = <
+            ["at151"] = <http://openehr.org/id/121>
+            ["at153"] = <http://openehr.org/id/124>
+            ["at231"] = <http://openehr.org/id/385>
+            ["at260"] = <http://openehr.org/id/129>
+        >
+    >
